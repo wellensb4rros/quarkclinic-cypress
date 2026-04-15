@@ -112,7 +112,6 @@ describe("QuarkClinic - Testes E2E", () => {
       .first()
       .click();
 
-  // Fecha modal inicial se aparecer
     cy.get("body").then(($body) => {
       if ($body.find('[data-cy="modal-login-btn-fechar"]').length > 0) {
         cy.get('[data-cy="modal-login-btn-fechar"]').click();
@@ -136,7 +135,7 @@ describe("QuarkClinic - Testes E2E", () => {
       .should("be.visible")
       .click();
 
-  // Captura horário antes de clicar
+
     cy.get('[data-cy^="agenda-item-horario-texto"]', { timeout: 15000 })
       .filter(":visible")
       .first()
@@ -145,13 +144,13 @@ describe("QuarkClinic - Testes E2E", () => {
         cy.wrap(horarioSelecionado.trim()).as("horarioSelecionado");
       });
 
-  // Clica no primeiro horário disponível
+
     cy.get('[data-cy^="agenda-item-horario-texto"]', { timeout: 15000 })
       .filter(":visible")
       .first()
       .click();
 
-  // Se aparecer popup de login, faz login corretamente nele
+  
     cy.get("body", { timeout: 15000 }).then(($body) => {
       if ($body.text().includes("Identifique-se")) {
 
@@ -167,7 +166,7 @@ describe("QuarkClinic - Testes E2E", () => {
           .clear()
           .type("violet01");
 
-      // Clica no checkbox pelo TEXTO (mais seguro)
+      
         cy.contains("Eu concordo com a Política de Privacidade", { timeout: 15000 })
           .should("be.visible")
           .click();
@@ -183,16 +182,16 @@ describe("QuarkClinic - Testes E2E", () => {
       }
     });
 
-  // Agora deve carregar etapa paciente
+  
     cy.contains("Paciente", { timeout: 15000 }).should("be.visible");
 
-  // Seleciona paciente clicando no label (mais seguro que input radio)
+  
     cy.get("label", { timeout: 15000 })
       .filter(":visible")
       .first()
       .click();
 
-  // Agora valida confirmação
+  
     cy.contains("Confirmação", { timeout: 15000 }).should("be.visible");
 
     cy.contains("CARDIOLOGIA", { timeout: 15000 }).should("be.visible");
