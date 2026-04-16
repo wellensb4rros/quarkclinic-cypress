@@ -3,11 +3,22 @@ function gerarEmailUnico() {
   return `teste${numero}@email.com`;
 }
 
+const DADOS_FIXOS = {
+  email: "violet_s@gmail.com",
+  senha: "violet01",
+  cpf: "01124457488"
+};
+
 describe("QuarkClinic - Testes E2E", () => {
 
   beforeEach(() => {
     cy.clearCookies();
     cy.clearLocalStorage();
+
+    cy.intercept('GET', '**/api/**').as('apiGet');
+    cy.intercept('POST', '**/api/**').as('apiPost');
+
+    cy.intercept('GET', '**/*.json').as('jsonRequests'); 
   });
 
   it("Fluxo 1 - Cadastro de Novo Usuário", () => {
@@ -96,4 +107,5 @@ describe("QuarkClinic - Testes E2E", () => {
       .should("be.visible");
   });
 
-});
+}); 
+
