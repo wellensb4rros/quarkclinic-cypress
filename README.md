@@ -92,3 +92,7 @@ Casos de Teste manuais para a tela de Login
 👩‍💻 Autora
 
 Projeto desenvolvido por Wellen Barros como atividade prática para o processo seletivo da ESIG Group / Quark Tecnologia.
+
+
+🎥 Vídeo de apresentação
+Link: https://drive.google.com/file/d/1IEV0-HS3jbEnNe1-opyqoJlMHXH7UejW/view?usp=sharing
