@@ -18,7 +18,6 @@ Cypress.Commands.add('login', (usuario, senha) => {
     .first()
     .click();
 
-  // 🔥 Tratamento da política de privacidade (caso apareça)
   cy.get("body").then(($body) => {
     if ($body.text().includes("Política de Privacidade")) {
       cy.contains("Eu concordo com a Política de Privacidade")
@@ -32,7 +31,6 @@ Cypress.Commands.add('login', (usuario, senha) => {
     }
   });
 
-  // valida login concluído
   cy.contains("Consulta Presencial", { timeout: 15000 })
     .should("be.visible");
 });
